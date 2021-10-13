@@ -38,7 +38,7 @@ public class BasePage {
   //HardCoded sleep
   public void sleepSeconds(int iSeconds){
     try{
-      log.debug("Sleep for " + Integer.toString(iSeconds) + " seconds");
+//      log.debug("Sleep for " + Integer.toString(iSeconds) + " seconds");
       Thread.sleep(iSeconds*1000);
     }
     catch (Exception e) {
