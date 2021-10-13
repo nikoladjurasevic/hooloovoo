@@ -21,15 +21,16 @@ public class HomePage extends BasePage{
   @FindBy(xpath = "//input[@value='Login']")
   WebElement loginButton;
 
-  @FindBy(linkText = "signup")
+  @FindBy(xpath = "//a[@href='signup']")
   WebElement signUpLink;
 
-  @FindBy(linkText = "login")
+  @FindBy(xpath = "//a[@href='login']")
   WebElement logInLink;
 
   public HomePage(WebDriver driver) {
     super(driver);
     driver.get(PageUrls.homeUrl);
+    verifyPageUrl(PageUrls.homeUrl);
     this.driver = driver;
   }
 
@@ -51,6 +52,10 @@ public class HomePage extends BasePage{
     return this;
   }
 
+  public SignUpPage clickSignUpLink() {
+    clickOnElement(signUpLink);
+    return new SignUpPage(driver);
+  }
 
 
 }

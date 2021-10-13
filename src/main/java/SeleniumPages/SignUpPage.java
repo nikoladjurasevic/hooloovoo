@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 public class SignUpPage extends BasePage {
 
   //Locators
-  //Locators
   @FindBy(name = "username")
   WebElement lastNameField;
 
@@ -26,9 +25,11 @@ public class SignUpPage extends BasePage {
   @FindBy(xpath = "//label[@for='fusername']/following::input[1]")
   WebElement secondFirstNameField;
 
+  @FindBy(className = "signupbtn")
+  WebElement signUpButton;
+
   public SignUpPage(WebDriver driver) {
     super(driver);
-
   }
 
   //Methods
@@ -55,5 +56,16 @@ public class SignUpPage extends BasePage {
   public void enterTextInSECONDFirstNameField(String text) {
     enterTextInfField(secondFirstNameField,text);
   }
+
+  public MessagePage clickSignUpLink() {
+    clickOnElement(signUpButton);
+    return new MessagePage(driver);
+  }
+
+  public SignUpPage clickSignUpLinkButStayOnPage() {
+    clickOnElement(signUpButton);
+    return this;
+  }
+
 
 }

@@ -15,11 +15,35 @@ public class BasePage {
   public BasePage(WebDriver driver) {
     PageFactory.initElements(driver, this);
     this.driver = driver;
+    sleepSeconds(1);
+  }
+
+  public void verifyPageUrl(String expectedUrl){
+    String actualUrl = driver.getCurrentUrl();
+    assert  actualUrl.equals(expectedUrl) : "Wrong URL. Expected: " + expectedUrl + " . Actual: " + actualUrl;
   }
 
   public void enterTextInfField(WebElement element, String text) {
+    element.click();
     element.clear();
     element.sendKeys(text);
+    sleepSeconds(1);
+  }
+
+  public void clickOnElement(WebElement element) {
+    element.click();
+    sleepSeconds(1);
+  }
+
+  //HardCoded sleep
+  public void sleepSeconds(int iSeconds){
+    try{
+      log.debug("Sleep for " + Integer.toString(iSeconds) + " seconds");
+      Thread.sleep(iSeconds*1000);
+    }
+    catch (Exception e) {
+      log.debug(e.getStackTrace().toString());
+    }
   }
 
 }
