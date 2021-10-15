@@ -8,6 +8,10 @@
   <artifactId>hooloovoo</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -20,7 +24,7 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>6.14.3</version>
-      <scope>compile</scope>
+      <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/log4j/log4j -->
     <dependency>
@@ -33,6 +37,12 @@
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>2.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->

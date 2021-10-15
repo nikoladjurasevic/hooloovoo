@@ -12,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Reporter;
 
 public class BaseTest {
   static final Logger log = LogManager.getLogger(BaseTest.class);
@@ -64,6 +65,7 @@ public class BaseTest {
     File DestFile = new File(destFilePath + separator + fileName + ".png");
     FileUtils.copyFile(SrcFile, DestFile);
     log.debug("Screenshot generated at" + DestFile.toString());
+    Reporter.log("<br><img src='"+ DestFile.getAbsolutePath() +"' height='600' width='800'/><br>");
   }
 
 }
