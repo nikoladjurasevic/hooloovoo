@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Default_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_Suite" title="SeleniumTests.SignUpTests" class="method navigator-link" hash-for-method="signUpTestPositiveScenario">signUpTestPositiveScenario</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_Suite" title="SeleniumTests.LoginTests" class="method navigator-link" hash-for-method="doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)">doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="SeleniumTests.LoginTests" class="method navigator-link" hash-for-method="doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)">doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_Suite -->
@@ -120,14 +125,23 @@
           <div class="suite-Default_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">SeleniumTests.SignUpTests</span>
+              <span class="class-name">SeleniumTests.LoginTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="signUpTestPositiveScenario">
-                  </a> <!-- signUpTestPositiveScenario -->
-                  <span class="method-name">signUpTestPositiveScenario</span>
+                  <a name="doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)">
+                  </a> <!-- doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789) -->
+                  <span class="method-name">doTestWithData</span>
+                  <span class="parameters">(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)">
+                  </a> <!-- doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789) -->
+                  <span class="method-name">doTestWithData</span>
+                  <span class="parameters">(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -144,11 +158,11 @@
 &lt;suite name=&quot;Default Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;hooloovoo&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;SeleniumTests.SignUpTests&quot;&gt;
+      &lt;class name=&quot;SeleniumTests.LoginTests&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;signUpTestPositiveScenario&quot;/&gt;
+          &lt;include name=&quot;doTestWithData&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- SeleniumTests.SignUpTests --&gt;
+      &lt;/class&gt; &lt;!-- SeleniumTests.LoginTests --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- hooloovoo --&gt;
 &lt;/suite&gt; &lt;!-- Default Suite --&gt;
@@ -188,16 +202,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'signUpTestPositiveScenario')
-data.setCell(0, 2, 'SeleniumTests.SignUpTests')
-data.setCell(0, 3, 21882);
+data.setCell(0, 1, 'doTestWithData')
+data.setCell(0, 2, 'SeleniumTests.LoginTests')
+data.setCell(0, 3, 23167);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'doTestWithData')
+data.setCell(1, 2, 'SeleniumTests.LoginTests')
+data.setCell(1, 3, 23130);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 46 seconds</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -208,23 +226,31 @@ return data;
             <span class="header-content">Reporter output for Default Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">4 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">SeleniumTests.SignUpTests</span>
+              <span class="ignored-class-name">SeleniumTests.LoginTests</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">signUpThenLoginPositiveScenarioRandomUserInfo</span>
+                <span class="ignored-method-name">signUpTestSameEmailUsedTwice</span>
                 <br/>
                 <span class="ignored-method-name">signUpThenLoginPositiveScenario</span>
-                <br/>
-                <span class="ignored-method-name">test1</span>
-                <br/>
-                <span class="ignored-method-name">signUpTestSameEmailUsedTwice</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -236,10 +262,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">SeleniumTests.SignUpTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">SeleniumTests.LoginTests</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">signUpTestPositiveScenario</span>
+                <span class="method-name">doTestWithData(Petar, Petrovic, pera1634334835346, pera1634334835346@email.com, password, 123456789)</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">doTestWithData(Jovan, Jovanovic, jova1634334835346, jova1634334835346@email.com, password, 123456789)</span>
+                <span class="method-start">23133 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

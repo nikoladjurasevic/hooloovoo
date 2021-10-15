@@ -45,6 +45,13 @@
       <version>3.8.1</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>5.4</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
     <!--        <dependency>-->
     <!--            <groupId>org.seleniumhq.selenium</groupId>-->

@@ -1,17 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+<testng-results ignored="2" total="4" passed="2" failed="0" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[<br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br>]]>
+    </line>
+    <line>
+      <![CDATA[<br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br>]]>
+    </line>
   </reporter-output>
-  <suite started-at="2021-10-15T21:13:07Z" name="Default Suite" finished-at="2021-10-15T21:13:29Z" duration-ms="21943">
+  <suite started-at="2021-10-15T21:53:55Z" name="Default Suite" finished-at="2021-10-15T21:54:41Z" duration-ms="46350">
     <groups>
     </groups>
-    <test started-at="2021-10-15T21:13:07Z" name="hooloovoo" finished-at="2021-10-15T21:13:29Z" duration-ms="21943">
-      <class name="SeleniumTests.SignUpTests">
-        <test-method signature="signUpTestPositiveScenario()[pri:0, instance:SeleniumTests.SignUpTests@2a5c8d3f]" started-at="2021-10-15T21:13:07Z" name="signUpTestPositiveScenario" finished-at="2021-10-15T21:13:29Z" duration-ms="21882" status="PASS">
+    <test started-at="2021-10-15T21:53:55Z" name="hooloovoo" finished-at="2021-10-15T21:54:41Z" duration-ms="46350">
+      <class name="SeleniumTests.LoginTests">
+        <test-method signature="doTestWithData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:SeleniumTests.LoginTests@8317c52]" started-at="2021-10-15T21:53:55Z" name="doTestWithData" data-provider="testData" finished-at="2021-10-15T21:54:18Z" duration-ms="23130" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Petar]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Petrovic]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[pera1634334835346]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[pera1634334835346@email.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
+            <line>
+              <![CDATA[<br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- signUpTestPositiveScenario -->
-      </class> <!-- SeleniumTests.SignUpTests -->
+        </test-method> <!-- doTestWithData -->
+        <test-method signature="doTestWithData(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:SeleniumTests.LoginTests@8317c52]" started-at="2021-10-15T21:54:18Z" name="doTestWithData" data-provider="testData" finished-at="2021-10-15T21:54:41Z" duration-ms="23167" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Jovan]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Jovanovic]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[jova1634334835346]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[jova1634334835346@email.com]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.LoginTests1634334835346.png' height='600' width='800'/><br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- doTestWithData -->
+      </class> <!-- SeleniumTests.LoginTests -->
     </test> <!-- hooloovoo -->
   </suite> <!-- Default Suite -->
 </testng-results>

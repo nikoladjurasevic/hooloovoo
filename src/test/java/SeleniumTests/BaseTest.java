@@ -103,7 +103,7 @@ public class BaseTest {
    * @param email
    * @param password
    * @param mobile
-   * @return
+   * @return user info
    */
   public HashMap<String, String> createUserInfo(String firstName1, String firstName2, String userName, String email, String password, String mobile) {
     HashMap<String, String> userInfo = new HashMap<String, String>();
@@ -123,7 +123,7 @@ public class BaseTest {
 
   /**
    * Method for creating random user
-   * @return
+   * @return user info
    */
   public HashMap<String, String> createRandomUserInfo() {
     String firstName1 = "prviFirstName";
@@ -153,9 +153,9 @@ public class BaseTest {
   }
 
   /**
-   * Method to sign up random user
+   * Method to sign up random user and return his email
    * @param driver
-   * @return
+   * @return user name
    */
   public String signUpRandomUser(WebDriver driver) {
     HashMap<String, String> radomUserInfo = createRandomUserInfo();

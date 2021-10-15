@@ -3,19 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="56904dba-866f-4070-9f9f-793aa35fda6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumPages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumPages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumPages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumPages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumPages/MessagePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumPages/MessagePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumPages/SignUpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumPages/SignUpPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumPages/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumPages/Strings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SeleniumTests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SeleniumTests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SeleniumTests/SignUpTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SeleniumTests/SignUpTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/Default Suite/hooloovoo.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default Suite/hooloovoo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/Default Suite/hooloovoo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default Suite/hooloovoo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Default Suite/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default Suite/testng-failed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/emailable-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-SeleniumTests.SignUpTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/junitreports/TEST-SeleniumTests.SignUpTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/old/Default Suite/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default Suite/classes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/old/Default Suite/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default Suite/methods-alphabetical.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/old/Default Suite/methods-not-run.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default Suite/methods-not-run.html" afterDir="false" />
@@ -24,8 +18,8 @@
       <change beforePath="$PROJECT_DIR$/test-output/old/Default Suite/testng.xml.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default Suite/testng.xml.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/old/Default Suite/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default Suite/toc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/old/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-failed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.SignUpTests.signUpTestPositiveScenario">
+  <component name="RunManager" selected="TestNG.LoginTests.doTestWithData">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -88,7 +82,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SignUpTests.signUpTestPositiveScenario (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.doTestWithData" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="hooloovoo" />
       <extension name="coverage">
         <pattern>
@@ -98,11 +92,11 @@
       </extension>
       <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="SeleniumTests" />
-      <option name="MAIN_CLASS_NAME" value="SeleniumTests.SignUpTests" />
-      <option name="METHOD_NAME" value="signUpTestPositiveScenario" />
+      <option name="MAIN_CLASS_NAME" value="SeleniumTests.LoginTests" />
+      <option name="METHOD_NAME" value="doTestWithData" />
       <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <option name="PARAMETERS" value="0" />
+      <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" value="C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\test-output" />
       <option name="TEST_SEARCH_SCOPE">
@@ -249,11 +243,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.LoginTests.doTestWithData" />
         <item itemvalue="TestNG.SignUpTests.signUpTestPositiveScenario" />
         <item itemvalue="TestNG.SignUpTests.signUpTestSameEmailUsedTwice (1)" />
         <item itemvalue="TestNG.SignUpTests.signUpTestSameEmailUsedTwice" />
         <item itemvalue="TestNG.SignUpTests.signUpThenLoginPositiveScenario" />
-        <item itemvalue="TestNG.SignUpTests.signUpTestPositiveScenario (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -267,7 +261,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634072643357</updated>
-      <workItem from="1634072647608" duration="27922000" />
+      <workItem from="1634072647608" duration="30803000" />
     </task>
     <servers />
   </component>
@@ -284,21 +278,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/SeleniumTests/SignUpTests.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/SeleniumTests/SignUpTests.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

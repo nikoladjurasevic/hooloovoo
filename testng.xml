@@ -4,7 +4,8 @@
 <suite name="suite" verbose="1" >
   <test name="allTests" >
     <classes>
-       <class name="SeleniumTests.SignUpTests" />
+      <class name="SeleniumTests.LoginTests" />
+      <class name="SeleniumTests.SignUpTests" />
     </classes>
   </test>
 </suite>
