@@ -4,9 +4,15 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
+
+  //some common locators
+  //This webelement is found on MessagePage and AddUserPage
+  @FindBy(xpath = "//a[@href='/']")
+  WebElement homeLink;
 
   static final Logger log = LogManager.getLogger(BasePage.class);
 
@@ -15,6 +21,7 @@ public class BasePage {
   public BasePage(WebDriver driver) {
     PageFactory.initElements(driver, this);
     this.driver = driver;
+    log.debug("Current page: " + driver.getCurrentUrl());
     sleepSeconds(1);
   }
 
@@ -24,6 +31,7 @@ public class BasePage {
   }
 
   public void enterTextInfField(WebElement element, String text) {
+    log.debug("enterTextInfField(" + text + ")");
     element.click();
     element.clear();
     element.sendKeys(text);
@@ -31,6 +39,7 @@ public class BasePage {
   }
 
   public void clickOnElement(WebElement element) {
+    log.debug("clickOnElement()");
     element.click();
     sleepSeconds(1);
   }

@@ -5,7 +5,7 @@
     <classes>
       <class name="SeleniumTests.SignUpTests">
         <methods>
-          <include name="signUpTestPositiveScenario"/>
+          <include name="signUpTestSameEmailUsedTwice"/>
         </methods>
       </class> <!-- SeleniumTests.SignUpTests -->
     </classes>

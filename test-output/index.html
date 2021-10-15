@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_Suite" class="navigator-link">
-              <span class="suite-name border-failed">Default Suite</span>
+              <span class="suite-name border-passed">Default Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_Suite" class="hide-methods failed suite-Default_Suite"> (hide)</a> <!-- hide-methods failed suite-Default_Suite -->
-                      <a href="#" panel-name="suite-Default_Suite" class="show-methods failed suite-Default_Suite"> (show)</a> <!-- show-methods failed suite-Default_Suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_Suite" class="hide-methods passed suite-Default_Suite"> (hide)</a> <!-- hide-methods passed suite-Default_Suite -->
+                      <a href="#" panel-name="suite-Default_Suite" class="show-methods passed suite-Default_Suite"> (show)</a> <!-- show-methods passed suite-Default_Suite -->
                     </span>
-                    <div class="method-list-content failed suite-Default_Suite">
+                    <div class="method-list-content passed suite-Default_Suite">
                       <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_Suite" title="SeleniumTests.SignUpTests" class="method navigator-link" hash-for-method="signUpTestPositiveScenario">signUpTestPositiveScenario</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Default_Suite -->
+                    </div> <!-- method-list-content passed suite-Default_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,9 +117,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_Suite" class="panel Default_Suite">
-          <div class="suite-Default_Suite-class-failed">
+          <div class="suite-Default_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">SeleniumTests.SignUpTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -128,14 +128,10 @@
                   <a name="signUpTestPositiveScenario">
                   </a> <!-- signUpTestPositiveScenario -->
                   <span class="method-name">signUpTestPositiveScenario</span>
-                  <div class="stack-trace">java.lang.AssertionError: Wrong message. Expected: User has been successfully registered. . Actual: User has been successfully registered.
-	at SeleniumTests.SignUpTests.signUpTestPositiveScenario(SignUpTests.java:48)
-... Removed 24 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_Suite-class-failed -->
+          </div> <!-- suite-Default_Suite-class-passed -->
         </div> <!-- panel Default_Suite -->
         <div panel-name="test-xml-Default_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -150,7 +146,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;SeleniumTests.SignUpTests&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;signUpTestPositiveScenario&quot; invocation-numbers=&quot;0&quot;/&gt;
+          &lt;include name=&quot;signUpTestPositiveScenario&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- SeleniumTests.SignUpTests --&gt;
     &lt;/classes&gt;
@@ -196,12 +192,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'signUpTestPositiveScenario')
 data.setCell(0, 2, 'SeleniumTests.SignUpTests')
-data.setCell(0, 3, 18436);
+data.setCell(0, 3, 21882);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 21 seconds</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -212,23 +208,23 @@ return data;
             <span class="header-content">Reporter output for Default Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">signUpTestPositiveScenario</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><br><img src='C:\qa\echosign\src\qa\automation\tools\branches\hooloovoo\src\test\java\Output\class SeleniumTests.SignUpTests1634324197677.png' height='600' width='800'/><br></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">SeleniumTests.SignUpTests</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">signUpThenLoginPositiveScenarioRandomUserInfo</span>
+                <br/>
+                <span class="ignored-method-name">signUpThenLoginPositiveScenario</span>
+                <br/>
                 <span class="ignored-method-name">test1</span>
+                <br/>
+                <span class="ignored-method-name">signUpTestSameEmailUsedTwice</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -242,8 +238,6 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">SeleniumTests.SignUpTests</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">signUpTestPositiveScenario</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->

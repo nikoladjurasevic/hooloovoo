@@ -10,15 +10,16 @@ public class MessagePage extends BasePage {
   @FindBy(xpath = "//h3")
   WebElement messageText;
 
-  @FindBy(xpath = "//a[@href='/']")
-  WebElement homeLink;
-
-
   public MessagePage(WebDriver driver) {
     super(driver);
   }
 
   public String getMessage() {
     return messageText.getText();
+  }
+
+  public HomePage clickHomeLink() {
+    clickOnElement(homeLink);
+    return new HomePage(driver);
   }
 }

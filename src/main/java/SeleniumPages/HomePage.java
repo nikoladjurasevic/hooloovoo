@@ -29,7 +29,6 @@ public class HomePage extends BasePage{
 
   public HomePage(WebDriver driver) {
     super(driver);
-    driver.get(PageUrls.homeUrl);
     verifyPageUrl(PageUrls.homeUrl);
     this.driver = driver;
   }
@@ -47,9 +46,25 @@ public class HomePage extends BasePage{
     return this;
   }
 
-  public HomePage clickLoginButton() {
+  public MessagePage clickLoginButton() {
+    loginButton.click();
+    return new MessagePage(driver);
+  }
+
+  public LoginPage clickLoginLink() {
+    clickOnElement(logInLink);
+    return new LoginPage(driver);
+  }
+
+  public HomePage clickLoginButtonFailure() {
     loginButton.click();
     return this;
+  }
+
+  public HomePage loginWithCredentials(String username, String password) {
+    enterUserName(username);
+    enterPassword(password);
+    return clickLoginButtonFailure();
   }
 
   public SignUpPage clickSignUpLink() {
