@@ -2,12 +2,9 @@
 <!DOCTYPE suite SYSTEM  "http://testng.org/testng-1.0.dtd" >
 
 <suite name="suite" verbose="1" >
-  <test name="allTests" >
+  <test name="allApiTest" >
     <classes>
-      <class name="SeleniumTests.LoginTests" />
-      <class name="SeleniumTests.SignUpTests" />
+      <class name="RestApiTests.PutUsersRegisterTests" />
     </classes>
   </test>
 </suite>
-
-

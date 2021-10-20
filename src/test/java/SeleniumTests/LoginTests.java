@@ -18,8 +18,8 @@ public class LoginTests extends BaseTest {
   public void signUpThenLoginPositiveScenario() {
     WebDriver driver = openChromeDriver();
     try {
-      HashMap<String, String> userInfo = createUserInfo("Petar", "Petrovic", "pera" + currentTime,
-                                                        "pera"+currentTime+"@email.com", password, "123456789");
+      HashMap<String, String> userInfo = createUserInfo("Krsta ", "Krstic", "krle" + currentTime,
+                                                        "krle"+currentTime+"@email.com", password, "123456789");
       signUp(driver, userInfo);
       HomePage homePage = new HomePage(driver);
       LoginPage loginPage = homePage.clickLoginLink();
