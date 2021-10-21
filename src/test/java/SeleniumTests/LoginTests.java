@@ -4,22 +4,29 @@ import java.util.HashMap;
 
 import SeleniumPages.HomePage;
 import SeleniumPages.LoginPage;
-import SeleniumPages.MessagePage;
 import SeleniumPages.PageUrls;
-import SeleniumPages.SignUpPage;
-import SeleniumPages.Strings;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
+
+  /**
+   * 1. Navigate to register page
+   * 2. Enter valid credentials in all fields
+   * 3. Sign up
+   * 4. Navigate to login page
+   * 5. Enter username and password from step 2. Click login button
+   *
+   * Expected result:
+   * 3. Verify that user is registered. Success message "User has been successfully registered." is shown
+   * 5. Verify that user is logged in
+   */
   @Test
   public void signUpThenLoginPositiveScenario() {
     WebDriver driver = openChromeDriver();
     try {
-      HashMap<String, String> userInfo = createUserInfo("Krsta ", "Krstic", "krle" + currentTime,
-                                                        "krle"+currentTime+"@email.com", password, "123456789");
+      HashMap<String, String> userInfo = createUserInfo("Krsta ", "Krstic", "krle" + getCurrentTimeAsUniqueId(),
+                                                        "krle"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789");
       signUp(driver, userInfo);
       HomePage homePage = new HomePage(driver);
       LoginPage loginPage = homePage.clickLoginLink();
@@ -32,27 +39,7 @@ public class LoginTests extends BaseTest {
 
   }
 
-  @Test
-  public void signUpTestSameEmailUsedTwice() {
-    WebDriver driver = openChromeDriver();
-    try {
-      HashMap<String, String> userInfo = createUserInfo("Petar", "Petrovic", "pera" + currentTime,
-                                                        "pera"+currentTime+"@email.com", password, "123456789");
-      signUp(driver, userInfo);
-      HomePage homePage = new HomePage(driver);
-      SignUpPage signUpPage = homePage.clickSignUpLink();
-      signUpPage.fillInSignUpForm(userInfo);
-      MessagePage messagePage = signUpPage.clickSignUpLink();
-      messagePage.verifyPageUrl(PageUrls.adduser);
-      String actualMessage = messagePage.getMessage();
-      assert actualMessage.equals(Strings.userAddedExists) : "Wrong message. Expected: " + Strings.userAddedExists + " . Actual: " + actualMessage;
-      driver.quit();
 
-    } finally {
-      quitDriver(driver);
-    }
-
-  }
 
 
 

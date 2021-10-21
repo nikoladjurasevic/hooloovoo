@@ -19,13 +19,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Reporter;
 
+
 public class BaseTest {
   static final Logger log = LogManager.getLogger(BaseTest.class);
-
-  //Generating data for user info
-  Date date = new Date();
-  long currentTime = date.getTime();
+  
   static final String password = "password";
+ 
 
   /**
    * Creating driver instance and navigating to home page
@@ -61,6 +60,12 @@ public class BaseTest {
     }
   }
 
+  public long getCurrentTimeAsUniqueId() {
+    Date date = new Date();
+    long currentTime;
+    return currentTime= date.getTime();
+  }
+
   /**
    * quit driver method for failing tests
    * @param driver
@@ -68,7 +73,7 @@ public class BaseTest {
   public void quitDriver(WebDriver driver) {
     if (driver!=null) {
       try {
-        takeScreenshot(driver, getClass().toString()+currentTime);
+        takeScreenshot(driver, getClass().toString()+getCurrentTimeAsUniqueId());
         driver.quit();
       } catch (Throwable t) {
         log.debug(t.getMessage());
@@ -128,8 +133,8 @@ public class BaseTest {
   public HashMap<String, String> createRandomUserInfo() {
     String firstName1 = "prviFirstName";
     String firstName2 ="drugiFirstName";
-    String userName = "lastName" + currentTime;
-    String email = "email" + currentTime + "@email.com";
+    String userName = "lastName" + getCurrentTimeAsUniqueId();
+    String email = "email" + getCurrentTimeAsUniqueId() + "@email.com";
     String mobile = "1234567890";
     return createUserInfo(firstName1, firstName2, userName, email, password, mobile );
   }
