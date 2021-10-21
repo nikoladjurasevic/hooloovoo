@@ -18,6 +18,12 @@ public class BasePage {
 
   protected WebDriver driver = null;
 
+
+  //NOTE: I've added sleep so the test can be viewed when running
+  /**
+   * BasePage constructor
+   * @param driver
+   */
   public BasePage(WebDriver driver) {
     PageFactory.initElements(driver, this);
     this.driver = driver;
@@ -25,11 +31,20 @@ public class BasePage {
     sleepSeconds(1);
   }
 
+  /**
+   * Method to compare expected and actual url
+   * @param expectedUrl
+   */
   public void verifyPageUrl(String expectedUrl){
     String actualUrl = driver.getCurrentUrl();
     assert  actualUrl.equals(expectedUrl) : "Wrong URL. Expected: " + expectedUrl + " . Actual: " + actualUrl;
   }
 
+  /**
+   * Method for entering text into fields
+   * @param element
+   * @param text
+   */
   public void enterTextInfField(WebElement element, String text) {
     log.debug("enterTextInfField(" + text + ")");
     element.click();
@@ -38,6 +53,10 @@ public class BasePage {
     sleepSeconds(1);
   }
 
+  /**
+   * Method for clicking on webelement
+   * @param element
+   */
   public void clickOnElement(WebElement element) {
     log.debug("clickOnElement()");
     element.click();

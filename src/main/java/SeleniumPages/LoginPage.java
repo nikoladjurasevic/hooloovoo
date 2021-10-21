@@ -23,23 +23,44 @@ public class LoginPage extends BasePage {
   }
 
   //Methods
+
+  /**
+   * Method for entering username
+   * @param username
+   * @return
+   */
   public LoginPage enterUserName(String username) {
     usernameField.clear();
     usernameField.sendKeys(username);
     return this;
   }
 
+  /**
+   * Method for entering password
+   * @param password
+   * @return
+   */
   public LoginPage enterPassword(String password) {
     passwordField.clear();
     passwordField.sendKeys(password);
     return this;
   }
 
+  /**
+   * Method for clicking login button
+   * @return
+   */
   public LoginPage clickLoginButton() {
     loginButton.click();
     return this;
   }
 
+  /**
+   * Method for entering credentials and clicking Login
+   * @param username
+   * @param password
+   * @return
+   */
   public LoginPage enterValidCredentialsAndLogin(String username, String password) {
     enterUserName(username);
     enterPassword(password);

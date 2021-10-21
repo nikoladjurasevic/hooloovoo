@@ -12,10 +12,15 @@ import org.testng.annotations.Test;
 
 public class PutUsersRegisterTests extends RestApiBaseTest {
 
+  /**
+   * Do a register user request with all 4 valid credentials (firstname, lastname, password, username)
+   * Expected result: user is crated (201 Created)
+   * Do a get/User/{username} and verify that user is created
+   */
   @Test
   public void testCreateUserWithAllRequiredParams() {
     String userName = "dragan" + currentTime;
-    Response response = doPutUsersRegister("Dragan3", "Dragovanovic3", password , userName);
+    Response response = doPutUsersRegister("Dragan", "Dragovanovic", password , userName);
     assert verifyResponseCode(response, 201) : "Expected response code: 201. Actual: " + response.getStatusCode();
     ResponseBody body = response.getBody();
     log.debug(body.asString());
@@ -25,6 +30,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
   }
 
 
+  /**
+   * Try to create user with empty string for a fist name
+   * Expected result: user is not created (400 Bad request)
+   */
   @Test
   public void testCreateUserWithEmptyFirstName() {
     String userName = "dragan" + currentTime;
@@ -35,6 +44,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
     assert actualResponseBody.equals(FIRST_NAME_ERROR_MESSAGE) : "Expected response body to be :  " + FIRST_NAME_ERROR_MESSAGE + " Actual:" + actualResponseBody;
   }
 
+  /**
+   * Try to create user with 15character string for a fist name
+   * Expected result: user is created (201 Created)
+   */
   @Test
   public void testCreateUserWith15CharachterFirstName() {
     String userName = "blablablablabla";
@@ -49,6 +62,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
     }
   }
 
+  /**
+   * Try to create user with 16character string for a fist name
+   * Expected result: user is not created (400 Bad request)
+   */
   @Test
   public void testCreateUserWith16CharachterFirstName() {
     String userName = "blablablablablab";
@@ -59,6 +76,11 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
     assert actualResponseBody.equals(FIRST_NAME_ERROR_MESSAGE) : "Expected response body to be :  " + FIRST_NAME_ERROR_MESSAGE + " Actual:" + actualResponseBody;
   }
 
+  /**
+   * Try to create user with email key and value in request (non existing key in body template)
+   * Expected result: user is created (201 Created)
+   * User is created but email value is still null when doing a get/Users/{username}
+   */
   @Test
   public void testTryToCreateUserWithEmail() {
     String userName = "jovan" + currentTime;
@@ -72,6 +94,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
     assert body.jsonPath().get("user_email")==null : "Email should not be crated, but it is";
   }
 
+  /**
+   * Try to create user which is already registered
+   * Expected result: user is not created (400 Created)
+   */
   @Test
   public void testTryToCreateExistingUser() {
     String userName = "ivkica" + currentTime;
@@ -84,7 +110,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
   }
 
 
-
+  /**
+   * Try to create user with invalid request (1 or more required parameters is mising in request body)
+   * Expected result: user is not created (500 Server error)
+   */
   @Test(dataProvider = "invalidTestData")
   public void testInvalidForm(String firstName, String lastName, String password, String username ) {
     log.debug("testInvalidForm(" + firstName + ", " + lastName + ", " + password + ", " + username + ")");
@@ -116,10 +145,10 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
             {null , "bla" +currentTime, null, "bla" +currentTime},
             {null , "bla" +currentTime, "bla" +currentTime, "bla" +currentTime},
 
-            {null , null, "something" +currentTime, null},
-            {null , null, "something" +currentTime, "something" +currentTime},
+            {null , null, "bla" +currentTime, null},
+            {null , null, "bla" +currentTime, "bla" +currentTime},
 
-            {null , null, null, "something" +currentTime},
+            {null , null, null, "bla" +currentTime},
     };
   }
 
