@@ -3,10 +3,6 @@ package SeleniumPages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-
-
 
 
 public class HomePage extends BasePage{
@@ -27,6 +23,14 @@ public class HomePage extends BasePage{
   @FindBy(xpath = "//a[@href='login']")
   WebElement logInLink;
 
+  @FindBy(xpath = "//a[@class = 'fb btn']")
+  WebElement facebookLoginButton;
+
+  @FindBy(xpath = "//a[@class = 'twitter btn']")
+  WebElement twitterLoginButton;
+
+  @FindBy(xpath = "//a[@class = 'google btn']")
+  WebElement googleplusLoginButton;
   /**
    * Constructor
    */
@@ -44,6 +48,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public HomePage enterUserName(String username) {
+    log.debug("[TEST] enterUserName(" + username + ")");
     usernameField.clear();
     usernameField.sendKeys(username);
     return this;
@@ -55,6 +60,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public HomePage enterPassword(String password) {
+    log.debug("[TEST] enterPassword(" + password + ")");
     passwordField.clear();
     passwordField.sendKeys(password);
     return this;
@@ -65,6 +71,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public MessagePage clickLoginButton() {
+    log.debug("[TEST] clickLoginButton");
     loginButton.click();
     return new MessagePage(driver);
   }
@@ -74,6 +81,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public LoginPage clickLoginLink() {
+    log.debug("[TEST] clickLoginLink");
     clickOnElement(logInLink);
     return new LoginPage(driver);
   }
@@ -83,6 +91,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public HomePage clickLoginButtonFailure() {
+    log.debug("[TEST] clickLoginButtonFailure()");
     loginButton.click();
     return this;
   }
@@ -94,6 +103,7 @@ public class HomePage extends BasePage{
    * @return
    */
   public HomePage loginWithCredentials(String username, String password) {
+    log.debug("[TEST] loginWithCredentials()");
     enterUserName(username);
     enterPassword(password);
     return clickLoginButtonFailure();
@@ -104,9 +114,43 @@ public class HomePage extends BasePage{
    * @return
    */
   public SignUpPage clickSignUpLink() {
+    log.debug("[TEST] clickSignUpLink()");
     clickOnElement(signUpLink);
+    log.debug("[TEST] Navigate to Sign Up page");
     return new SignUpPage(driver);
   }
 
+  /**
+   * Method for clicking login with facebook button
+   * @return
+   */
+  public LoginPage clickLoginWithFacebookButton() {
+    log.debug("[TEST] clickLoginWithFacebookButton()");
+    clickOnElement(facebookLoginButton);
+    log.debug("[TEST] Navigate to Login page");
+    return new LoginPage(driver);
+  }
+
+  /**
+   * Method for clicking login with twitter button
+   * @return
+   */
+  public LoginPage clickLoginWithTwitterButton() {
+    log.debug("[TEST] clickLoginWithTwitterButton()");
+    clickOnElement(twitterLoginButton);
+    log.debug("[TEST] Navigate to Login page");
+    return new LoginPage(driver);
+  }
+
+  /**
+   * Method for clicking login with google+ button
+   * @return
+   */
+  public LoginPage clickLoginWithGooglePlustButton() {
+    log.debug("[TEST] clickLoginWithGooglePlustButton()");
+    clickOnElement(googleplusLoginButton);
+    log.debug("[TEST] Navigate to Login page");
+    return new LoginPage(driver);
+  }
 
 }

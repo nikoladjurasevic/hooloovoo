@@ -30,6 +30,8 @@ public class SignUpPage extends BasePage {
   @FindBy(className = "signupbtn")
   WebElement signUpButton;
 
+  @FindBy(className = "cancelbtn")
+  WebElement cancelButton;
   public SignUpPage(WebDriver driver) {
     super(driver);
   }
@@ -100,7 +102,8 @@ public class SignUpPage extends BasePage {
    * Method for clicking Sign up link
    * @return
    */
-  public MessagePage clickSignUpLink() {
+  public MessagePage clickSignUpButton() {
+    log.debug("[TEST] clickSignUpButton()");
     clickOnElement(signUpButton);
     return new MessagePage(driver);
   }
@@ -109,10 +112,21 @@ public class SignUpPage extends BasePage {
    * Method for clicking Sign up link but expecting error and staying on same page
    * @return
    */
-  public SignUpPage clickSignUpLinkButStayOnPage() {
+  public SignUpPage clickSignUpButtonButStayOnPage() {
+    log.debug("[TEST] clickSignUpButtonButStayOnPage()");
     clickOnElement(signUpButton);
     return this;
   }
 
+  /**
+   * Method for clicking Cancel button
+   * @return
+   */
+  public HomePage clickCancelButton() {
+    log.debug("[TEST] clickCancelButton()");
+    clickOnElement(cancelButton);
+    log.debug("[TEST] Navigate to Home page");
+    return new HomePage(driver);
+  }
 
 }

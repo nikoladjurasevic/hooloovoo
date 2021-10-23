@@ -1,5 +1,6 @@
 package RestApiTests;
 import RestApi.ApiUtils;
+import SeleniumTests.DateTimeUtils;
 import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -19,7 +20,7 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
    */
   @Test
   public void testCreateUserWithAllRequiredParams() {
-    String userName = "dragan" + currentTime;
+    String userName = "dragan" + DateTimeUtils.getCurrentTimeAsUniqueId();
     Response response = doPutUsersRegister("Dragan", "Dragovanovic", password , userName);
     assert verifyResponseCode(response, 201) : "Expected response code: 201. Actual: " + response.getStatusCode();
     ResponseBody body = response.getBody();
@@ -36,7 +37,7 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
    */
   @Test
   public void testCreateUserWithEmptyFirstName() {
-    String userName = "dragan" + currentTime;
+    String userName = "dragan" + DateTimeUtils.getCurrentTimeAsUniqueId();
     Response response = doPutUsersRegister("", "Dragan", password , userName);
     assert verifyResponseCode(response, 400) : "Expected response code: 400. Actual: " + response.getStatusCode();
     String actualResponseBody = response.getBody().asString();
@@ -83,7 +84,7 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
    */
   @Test
   public void testTryToCreateUserWithEmail() {
-    String userName = "jovan" + currentTime;
+    String userName = "jovan" + DateTimeUtils.getCurrentTimeAsUniqueId();
     RequestSpecification request = setUpRequest(true);
     JSONObject userRequestBody = createUserRequestJSONObject("Jovan", "Jovanovic", password , userName);
     userRequestBody.put("user_email", userName + "@.email.com");
@@ -100,7 +101,7 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
    */
   @Test
   public void testTryToCreateExistingUser() {
-    String userName = "ivkica" + currentTime;
+    String userName = "ivkica" + DateTimeUtils.getCurrentTimeAsUniqueId();
     Response response = doPutUsersRegister("Ivana", "Ivanovic", password , userName);
     assert verifyResponseCode(response, 201): "Expected response code: 201. Actual: " + response.getStatusCode();
     response = doPutUsersRegister("Ivana", "Ivanovic", password , userName);
@@ -125,30 +126,30 @@ public class PutUsersRegisterTests extends RestApiBaseTest {
   public Object[][] invalidTestData() {
     return new Object[][] {
             {null , null, null, null},
-            {"bla" +currentTime , null, null, null},
-            {null, "bla" +currentTime, null, null},
-            {null, null, "bla" +currentTime, null},
-            {null, null, null, "bla" +currentTime},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId() , null, null, null},
+            {null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null, null},
+            {null, null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null},
+            {null, null, null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
 
-            {"bla" +currentTime, "bla" +currentTime, null, null},
-            {"bla" +currentTime , null, "bla" +currentTime, null},
-            {"bla" +currentTime , null, null, "bla" +currentTime},
-            {"bla" +currentTime , "bla" +currentTime, "bla" +currentTime, null},
-            {"bla" +currentTime , "bla" +currentTime, null, "bla" +currentTime},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null, null},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId() , null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId() , null, null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId() , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null},
+            {"bla" +DateTimeUtils.getCurrentTimeAsUniqueId() , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
 
             //for some reason this test beneath will first check firstname and then fail
-            {"a" +currentTime , null, "a" +currentTime, "a" +currentTime},
+            {"a" +DateTimeUtils.getCurrentTimeAsUniqueId() , null, "a" +DateTimeUtils.getCurrentTimeAsUniqueId(), "a" +DateTimeUtils.getCurrentTimeAsUniqueId()},
 
 
-            {null , "bla" +currentTime, null, null},
-            {null , "bla" +currentTime, "bla" +currentTime, null},
-            {null , "bla" +currentTime, null, "bla" +currentTime},
-            {null , "bla" +currentTime, "bla" +currentTime, "bla" +currentTime},
+            {null , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null, null},
+            {null , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null},
+            {null , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
+            {null , "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
 
-            {null , null, "bla" +currentTime, null},
-            {null , null, "bla" +currentTime, "bla" +currentTime},
+            {null , null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), null},
+            {null , null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId(), "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
 
-            {null , null, null, "bla" +currentTime},
+            {null , null, null, "bla" +DateTimeUtils.getCurrentTimeAsUniqueId()},
     };
   }
 

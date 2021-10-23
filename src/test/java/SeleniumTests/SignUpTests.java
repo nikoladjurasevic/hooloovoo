@@ -28,8 +28,9 @@ public class SignUpTests extends BaseTest{
   public void signUpTestPositiveScenario() {
     WebDriver driver = openChromeDriver();
     try {
-      HashMap<String, String> userInfo = createUserInfo("Petar", "Petrovic", "pera" + getCurrentTimeAsUniqueId(),
-                                                                 "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789");
+      log.debug("[TEST] Sign up new user");
+      HashMap<String, String> userInfo = createUserInfo("Petar", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(),
+                                                                 "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789");
       signUp(driver, userInfo);
       driver.quit();
     } finally {
@@ -75,7 +76,7 @@ public class SignUpTests extends BaseTest{
       String userName = signUpRandomUser(driver);
       HomePage homePage = new HomePage(driver);
       LoginPage loginPage = homePage.clickLoginLink();
-      loginPage.enterValidCredentialsAndLogin(userName, password);
+      loginPage.enterCredentialsAndLogin(userName, password);
       loginPage.verifyPageUrl(PageUrls.login);
       driver.quit();
     }finally {
@@ -96,13 +97,13 @@ public class SignUpTests extends BaseTest{
   public void signUpTestSameEmailUsedTwice() {
     WebDriver driver = openChromeDriver();
     try {
-      HashMap<String, String> userInfo = createUserInfo("Milan", "Milanovic", "mile" + getCurrentTimeAsUniqueId(),
-                                                        "mile"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789");
+      HashMap<String, String> userInfo = createUserInfo("Milan", "Milanovic", "mile" + DateTimeUtils.getCurrentTimeAsUniqueId(),
+                                                        "mile"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789");
       signUp(driver, userInfo);
       HomePage homePage = new HomePage(driver);
       SignUpPage signUpPage = homePage.clickSignUpLink();
       signUpPage.fillInSignUpForm(userInfo);
-      MessagePage messagePage = signUpPage.clickSignUpLink();
+      MessagePage messagePage = signUpPage.clickSignUpButton();
       messagePage.verifyPageUrl(PageUrls.adduser);
       String actualMessage = messagePage.getMessage();
       assert actualMessage.equals(Strings.userAddedExists) : "Wrong message. Expected: " + Strings.userAddedExists + " . Actual: " + actualMessage;
@@ -138,8 +139,8 @@ public class SignUpTests extends BaseTest{
   @DataProvider(name = "testData")
   public Object[][] testData() {
     return new Object[][] {
-            {"Petar", "Petrovic", "pera" + getCurrentTimeAsUniqueId(), "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
-            {"Jovan", "Jovanovic", "jova" + getCurrentTimeAsUniqueId(), "jova"+getCurrentTimeAsUniqueId()+"@email.com", password, "987654321"}
+            {"Petar", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
+            {"Jovan", "Jovanovic", "jova" + DateTimeUtils.getCurrentTimeAsUniqueId(), "jova"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "987654321"}
     };
   }
 
@@ -174,9 +175,9 @@ public class SignUpTests extends BaseTest{
       HomePage homePage = new HomePage(driver);
       SignUpPage signUpPage = homePage.clickSignUpLink();
       signUpPage.fillInSignUpForm(userInfo);
-      signUpPage.clickSignUpLinkButStayOnPage();
+      signUpPage.clickSignUpButtonButStayOnPage();
       assert driver.getCurrentUrl().equals(PageUrls.signUp) : "Wrong page. Expected" + PageUrls.signUp + " . Actual: " + driver.getCurrentUrl();
-//      driver.quit();
+      driver.quit();
     }finally {
       quitDriver(driver);
     }
@@ -185,12 +186,12 @@ public class SignUpTests extends BaseTest{
   @DataProvider(name = "missingData")
   public Object[][] missingData() {
     return new Object[][] {
-            {"", "Petrovic", "pera" + getCurrentTimeAsUniqueId(), "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
-            {"Petar", "", "pera" + getCurrentTimeAsUniqueId(), "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
-            {"Petar", "Petrovic", "", "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
-            {"Petar", "Petrovic", "pera" + getCurrentTimeAsUniqueId(), "", password, "123456789"},
-            {"Petar", "Petrovic", "pera" + getCurrentTimeAsUniqueId(), "pera"+getCurrentTimeAsUniqueId()+"@email.com", "", "123456789"},
-            {"Petar", "Petrovic", "pera" + getCurrentTimeAsUniqueId(), "pera"+getCurrentTimeAsUniqueId()+"@email.com", password, ""},
+            {"", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
+            {"Petar", "", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
+            {"Petar", "Petrovic", "", "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, "123456789"},
+            {"Petar", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "", password, "123456789"},
+            {"Petar", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", "", "123456789"},
+            {"Petar", "Petrovic", "pera" + DateTimeUtils.getCurrentTimeAsUniqueId(), "pera"+DateTimeUtils.getCurrentTimeAsUniqueId()+"@email.com", password, ""},
             //and all of other combinations
 
     };

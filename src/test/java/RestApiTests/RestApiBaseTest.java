@@ -14,8 +14,8 @@ import org.json.JSONObject;
 public class RestApiBaseTest extends ApiUtils{
 
   //Generating data for user info
-  Date date = new Date();
-  long currentTime = date.getTime();
+//  Date date = new Date();
+////  long currentTime = date.getTime();
   static final String password = "password";
 
   //Strings

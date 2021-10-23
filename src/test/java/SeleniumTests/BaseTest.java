@@ -3,7 +3,6 @@ package SeleniumTests;
 import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
-
 import SeleniumPages.HomePage;
 import SeleniumPages.MessagePage;
 import SeleniumPages.PageUrls;
@@ -24,7 +23,6 @@ public class BaseTest {
   static final Logger log = LogManager.getLogger(BaseTest.class);
   
   static final String password = "password";
- 
 
   /**
    * Creating driver instance and navigating to home page
@@ -60,11 +58,7 @@ public class BaseTest {
     }
   }
 
-  public long getCurrentTimeAsUniqueId() {
-    Date date = new Date();
-    long currentTime;
-    return currentTime= date.getTime();
-  }
+
 
   /**
    * quit driver method for failing tests
@@ -73,7 +67,7 @@ public class BaseTest {
   public void quitDriver(WebDriver driver) {
     if (driver!=null) {
       try {
-        takeScreenshot(driver, getClass().toString()+getCurrentTimeAsUniqueId());
+        takeScreenshot(driver, getClass().toString()+ DateTimeUtils.getCurrentTimeAsUniqueId());
         driver.quit();
       } catch (Throwable t) {
         log.debug(t.getMessage());
@@ -133,8 +127,8 @@ public class BaseTest {
   public HashMap<String, String> createRandomUserInfo() {
     String firstName1 = "prviFirstName";
     String firstName2 ="drugiFirstName";
-    String userName = "lastName" + getCurrentTimeAsUniqueId();
-    String email = "email" + getCurrentTimeAsUniqueId() + "@email.com";
+    String userName = "lastName" + DateTimeUtils.getCurrentTimeAsUniqueId();
+    String email = "email" + DateTimeUtils.getCurrentTimeAsUniqueId() + "@email.com";
     String mobile = "1234567890";
     return createUserInfo(firstName1, firstName2, userName, email, password, mobile );
   }
@@ -146,10 +140,11 @@ public class BaseTest {
    * @return user name
    */
   public String signUp(WebDriver driver, HashMap<String, String> userInfo) {
+    log.debug("[TEST] Navigate to Home page");
     HomePage homePage = new HomePage(driver);
     SignUpPage signUpPage = homePage.clickSignUpLink();
     signUpPage.fillInSignUpForm(userInfo);
-    MessagePage messagePage = signUpPage.clickSignUpLink();
+    MessagePage messagePage = signUpPage.clickSignUpButton();
     messagePage.verifyPageUrl(PageUrls.adduser);
     String actualMessage = messagePage.getMessage();
     assert actualMessage.equals(Strings.userAddedSuccess) : "Wrong message. Expected: " + Strings.userAddedSuccess + " . Actual: " + actualMessage;

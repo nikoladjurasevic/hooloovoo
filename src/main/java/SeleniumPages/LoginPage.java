@@ -30,6 +30,7 @@ public class LoginPage extends BasePage {
    * @return
    */
   public LoginPage enterUserName(String username) {
+    log.debug("[TEST] enterUserName(" + username + ")");
     usernameField.clear();
     usernameField.sendKeys(username);
     return this;
@@ -41,6 +42,7 @@ public class LoginPage extends BasePage {
    * @return
    */
   public LoginPage enterPassword(String password) {
+    log.debug("[TEST] enterPassword(" + password + ")");
     passwordField.clear();
     passwordField.sendKeys(password);
     return this;
@@ -50,9 +52,11 @@ public class LoginPage extends BasePage {
    * Method for clicking login button
    * @return
    */
-  public LoginPage clickLoginButton() {
+  public MessagePage clickLoginButton() {
+    log.debug("clickLoginButton()");
     loginButton.click();
-    return this;
+    log.debug("[TEST] Navigate to Message Page");
+    return new MessagePage(driver);
   }
 
   /**
@@ -61,11 +65,12 @@ public class LoginPage extends BasePage {
    * @param password
    * @return
    */
-  public LoginPage enterValidCredentialsAndLogin(String username, String password) {
+  public MessagePage enterCredentialsAndLogin(String username, String password) {
+    log.debug("[TEST] enterCredentialsAndLogin()");
     enterUserName(username);
     enterPassword(password);
-    clickLoginButton();
-    return this;
+    MessagePage messagePage = clickLoginButton();
+    return messagePage;
   }
 
 

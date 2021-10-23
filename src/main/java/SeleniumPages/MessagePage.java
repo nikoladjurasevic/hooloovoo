@@ -10,6 +10,9 @@ public class MessagePage extends BasePage {
   @FindBy(xpath = "//h3")
   WebElement messageText;
 
+  @FindBy(xpath = "//a[@href='/login/']")
+  WebElement loginLink;
+
   /**
    * constuctor
    * @param driver
@@ -31,7 +34,21 @@ public class MessagePage extends BasePage {
    * @return
    */
   public HomePage clickHomeLink() {
+    log.debug("[TEST] clickHomeLink()");
     clickOnElement(homeLink);
+    log.debug("[TEST] Navigate to Home Page");
     return new HomePage(driver);
   }
+
+  /**
+   * Method for clicking and navigating to Home page
+   * @return
+   */
+  public LoginPage clickLoginLink() {
+    log.debug("[TEST] clickLoginLink()");
+    clickOnElement(loginLink);
+    log.debug("[TEST] Navigate to Login Page");
+    return new LoginPage(driver);
+  }
+
 }

@@ -36,6 +36,7 @@ public class BasePage {
    * @param expectedUrl
    */
   public void verifyPageUrl(String expectedUrl){
+    log.debug("[TEST] verifyPageUrl(" + expectedUrl + ")");
     String actualUrl = driver.getCurrentUrl();
     assert  actualUrl.equals(expectedUrl) : "Wrong URL. Expected: " + expectedUrl + " . Actual: " + actualUrl;
   }
