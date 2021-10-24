@@ -266,6 +266,40 @@ public class BugsTests extends BaseTest {
      quitDriver(driver);
    }
  }
+  /**
+   * None of the fields on Sign up page have data validation
+   *
+   * Priority: Major
+   * Severity: Normal
+   *
+   * Steps to reproduce:
+   * 1. From home page click Sign up link
+   * 2. On Sign up page enter data in wrong format e.g. for first name put same numbers, email not in proper format ...
+   * 3. Click sign up button
+   *
+   * Actual result:
+   * User is registerd
+   *
+   * Expected result:
+   * There should be a error message showing which fields do not have data in proper format
+   */
+  @Test
+  public void testSignUpPageHasNoFieldValidation() {
+    String uniqueId = String.valueOf(DateTimeUtils.getCurrentTimeAsUniqueId());
+    WebDriver driver = openChromeDriver();
+    try {
+      HashMap<String, String> userInfo = createUserInfo(uniqueId, uniqueId, uniqueId, uniqueId, uniqueId, "abcdefg" );
+      HomePage homePage = new HomePage(driver);
+      SignUpPage signUpPage = homePage.clickSignUpLink();
+      signUpPage.fillInSignUpForm(userInfo);
+      signUpPage.clickSignUpButton();
+      signUpPage.verifyPageUrl(PageUrls.signUp);
+      driver.quit();
+    } finally {
+      quitDriver(driver);
+    }
+  }
+
 
 
 }
