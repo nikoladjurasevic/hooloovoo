@@ -1,4 +1,15 @@
 # hooloovoo
 
-trt mrt zivot ili smrt
+───src
+   ├───main
+   │   ├───java
+   │   │   ├───RestApi
+   │   │   └───SeleniumPages
+   │   └───resources
+   └───test
+       └───java
+           ├───Output
+           ├───RestApiTests
+           └───SeleniumTests
+
  
