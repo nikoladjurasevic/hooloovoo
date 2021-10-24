@@ -8,6 +8,10 @@ For the backedn part, one endpoint is covered with positive/negative tests.
 Maven is used as a builder, Java 8 and TestNG as a testing framework.
 Chromedriver is included here, please download latest if it's outdated
 
+### Note
+Output package is left intentionaly, so it shows screenshots of failed tests. 
+
+
 ## Project structure
 ```bash
 src
