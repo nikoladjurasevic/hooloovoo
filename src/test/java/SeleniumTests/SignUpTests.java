@@ -1,5 +1,7 @@
 package SeleniumTests;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import SeleniumPages.LoginPage;
 import SeleniumPages.HomePage;
@@ -7,6 +9,10 @@ import SeleniumPages.MessagePage;
 import SeleniumPages.PageUrls;
 import SeleniumPages.SignUpPage;
 import SeleniumPages.Strings;
+import com.google.common.base.Charsets;
+import com.google.common.io.Files;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -136,6 +142,10 @@ public class SignUpTests extends BaseTest{
     }
   }
 
+  /**
+   * test Data
+   * @return
+   */
   @DataProvider(name = "testData")
   public Object[][] testData() {
     return new Object[][] {
@@ -144,10 +154,52 @@ public class SignUpTests extends BaseTest{
     };
   }
 
+  /**
+   * Test with data provided from CSV file
+   * @param firstName1
+   * @param firstName2
+   * @param userName
+   * @param email
+   * @param password
+   * @param mobile
+   */
+  @Test(dataProvider = "testDataFromCSV")
+  public void signUptWithCSVData(String firstName1, String firstName2, String userName, String email, String password , String mobile) {
+    WebDriver driver = openChromeDriver();
+    try {
+      HashMap<String, String> userInfo = createUserInfo(firstName1, firstName2, userName, email, password, mobile);
+      signUp(driver, userInfo);
+      driver.quit();
+    }finally {
+      quitDriver(driver);
+    }
+  }
+
+  /**
+   * Test data from CSV file
+   * @return
+   * @throws IOException
+   * @throws CsvValidationException
+   */
   @DataProvider(name = "testDataFromCSV")
-  public Object[][] testDataFromCSV() {
-//TODO
-    return new Object[][] {};
+  public Object[][] testDataFromCSV() throws IOException, CsvValidationException {
+
+    File csvFile = new File("src/test/java/SeleniumTests/data.csv");
+    int rows = 0;
+    CSVReader csvReader = new CSVReader(Files.newReader(csvFile,Charsets.UTF_8));
+    while((csvReader.readNext()) != null) {
+      rows++;
+    }
+    csvReader.close();
+
+    Object object[][] = new Object[rows][5];
+    csvReader = new CSVReader(Files.newReader(csvFile,Charsets.UTF_8));
+    for(int i=0; i<rows; i++) {
+      String[] row = csvReader.readNext();
+      object[i] = row;
+    }
+    csvReader.close();
+    return object;
   }
 
   /**
